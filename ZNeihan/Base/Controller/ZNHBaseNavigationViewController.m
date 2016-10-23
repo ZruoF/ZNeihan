@@ -22,6 +22,32 @@
         [UIColor colorWithRed:0.86f green:0.85f blue:0.80f alpha:1.00f];
     // 设置导航栏标题文字颜色，创建字典保存文字大小和颜色
     NSMutableDictionary *color = [NSMutableDictionary dictionary];
+    color[NSFontAttributeName] = kFont(17.0f);
+    color[NSForegroundColorAttributeName] = [UIColor colorWithRed:0.42f green:0.33f blue:0.27f alpha:1.0f];
+    [[UINavigationBar appearance] setTitleTextAttributes:color];
+
+    // 拿到整个导航控制器的外观
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    item.tintColor = [UIColor colorWithRed:0.42f green:0.33f blue:0.27 alpha:1.0f];
+
+    //设置字典的字体大小
+    NSMutableDictionary *atts = [NSMutableDictionary dictionary];
+
+    atts[NSFontAttributeName] = [UIFont systemFontOfSize:17];
+    atts[NSForegroundColorAttributeName] = [UIColor colorWithRed:0.42f green:0.33f blue:0.27f alpha:1.0f];
+    // 将字典给item
+    [item setTitleTextAttributes:atts forState:UIControlStateNormal];
+
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self.viewControllers.count > 0) {
+        // 如果在堆栈控制器数量大于1 加载返回按钮
+        if (self.viewControllers.count > 0) {
+        }
+    }
 }
 
 - (void)viewDidLoad {
