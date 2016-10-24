@@ -7,6 +7,7 @@
 //
 
 #import "ZNHBaseNavigationViewController.h"
+#import "UIBarButtonItem+Addition.h"
 
 @interface ZNHBaseNavigationViewController () <UIGestureRecognizerDelegate>
 
@@ -46,8 +47,18 @@
     if (self.viewControllers.count > 0) {
         // 如果在堆栈控制器数量大于1 加载返回按钮
         if (self.viewControllers.count > 0) {
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+            [btn setImage:[UIImage imageNamed:@"back_neihan"] forState:UIControlStateNormal];
+            btn.imageEdgeInsets = UIEdgeInsetsMake(0, -18, 0, 0);
+            btn.tintColor=[UIColor colorWithRed:0.42f green:0.33f blue:0.27f alpha:1.0f];
+            UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+            [btn addTarget:self action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+            viewController.navigationItem.leftBarButtonItem = leftItem;
+        } else {
+            viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTitle:@"" tintColor:[UIColor colorWithRed:0.42f green:0.33f blue:0.27f alpha:1.0f] touchBack:nil];
         }
     }
+    [super pushViewController:viewController animated:animated];
 }
 
 - (void)viewDidLoad {
