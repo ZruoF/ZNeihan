@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DB213DC1DC0978C00F53B7E /* ZNHCommonConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB213DB1DC0978C00F53B7E /* ZNHCommonConstant.m */; };
+		9DB213ED1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB213EC1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m */; };
 		9DE3481C1DBDD24F002E1854 /* ZNHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE3481B1DBDD24F002E1854 /* ZNHBaseViewController.m */; };
 		9DE348221DBDDA67002E1854 /* UIBarButtonItem+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE348211DBDDA67002E1854 /* UIBarButtonItem+Addition.m */; };
 		9DE348271DBDDB38002E1854 /* NSNotificationCenter+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE348261DBDDB38002E1854 /* NSNotificationCenter+Addtion.m */; };
@@ -34,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		07F3264A7E4EA1459B8A0F44 /* libPods-ZNeihan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZNeihan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB213DA1DC0978C00F53B7E /* ZNHCommonConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHCommonConstant.h; sourceTree = "<group>"; };
+		9DB213DB1DC0978C00F53B7E /* ZNHCommonConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHCommonConstant.m; sourceTree = "<group>"; };
+		9DB213EB1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHCustomLoadingAnimationView.h; sourceTree = "<group>"; };
+		9DB213EC1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHCustomLoadingAnimationView.m; sourceTree = "<group>"; };
 		9DE3481A1DBDD24F002E1854 /* ZNHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHBaseViewController.h; sourceTree = "<group>"; };
 		9DE3481B1DBDD24F002E1854 /* ZNHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHBaseViewController.m; sourceTree = "<group>"; };
 		9DE348201DBDDA67002E1854 /* UIBarButtonItem+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Addition.h"; sourceTree = "<group>"; };
@@ -98,6 +104,39 @@
 				C22ADB53B5B802EAA986F9F4 /* Pods-ZNeihan.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9DB213E71DC0A3E100F53B7E /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				9DB213E81DC0A3E100F53B7E /* Controller */,
+				9DB213E91DC0A3E100F53B7E /* Tool */,
+				9DB213EA1DC0A3E100F53B7E /* View */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		9DB213E81DC0A3E100F53B7E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9DB213E91DC0A3E100F53B7E /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		9DB213EA1DC0A3E100F53B7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DB213EB1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.h */,
+				9DB213EC1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9DE3481D1DBDDA67002E1854 /* Category */ = {
@@ -256,6 +295,7 @@
 		9DE9B46E1DBC58A500912921 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				9DB213E71DC0A3E100F53B7E /* Custom */,
 				9DE3481D1DBDDA67002E1854 /* Category */,
 				9DE9B46F1DBC58A500912921 /* Tool */,
 			);
@@ -266,6 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				9DE9B4741DBC626F00912921 /* ZNHDefaultHeader.h */,
+				9DB213DA1DC0978C00F53B7E /* ZNHCommonConstant.h */,
+				9DB213DB1DC0978C00F53B7E /* ZNHCommonConstant.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -421,10 +463,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB213ED1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m in Sources */,
 				9DE348271DBDDB38002E1854 /* NSNotificationCenter+Addtion.m in Sources */,
 				9DE5626B1DB8EF9200BA6821 /* ViewController.m in Sources */,
 				9DE3481C1DBDD24F002E1854 /* ZNHBaseViewController.m in Sources */,
 				9DE562711DB8EF9200BA6821 /* ZNeihan.xcdatamodeld in Sources */,
+				9DB213DC1DC0978C00F53B7E /* ZNHCommonConstant.m in Sources */,
 				9DE562681DB8EF9200BA6821 /* AppDelegate.m in Sources */,
 				9DE7D06A1DB921A10083602E /* ZNHBaseNavigationViewController.m in Sources */,
 				9DE348221DBDDA67002E1854 /* UIBarButtonItem+Addition.m in Sources */,
