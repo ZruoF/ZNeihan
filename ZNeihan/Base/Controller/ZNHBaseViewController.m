@@ -52,20 +52,28 @@
     [NSNotificationCenter addObserver:self action:@selector(requestSuccessNotification) name:kZNHRequestSuccessNotification];
 }
 
-- (void)requestSuccessNotification {
+-(void)requestSuccessNotification {
     [self hideLoadingAnimation];
 }
 
--(void)pop {
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
+-(void)pop {
+    if (self.navigationController == nil) return;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)popToRootVc {
-
+    if (self.navigationController == nil) return;
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)popToVc:(UIViewController *)vc {
-
+    if ([vc isKindOfClass:[UIViewController class]] == NO) return;
+    if (self.navigationController == nil) return;
+    [self.navigationController popToViewController:vc animated:YES];
 }
 
 -(void)dismiss {
