@@ -14,6 +14,11 @@
  */
 #define WeakSelf(weakSelf) __weak __typeof(&*self) weakSelf = self;
 
+#pragma mark -颜色
+#define  kCommonBgColor [UIColor colorWithRed:0.86f green:0.85f blue:0.80f alpha:1.00f]
+#define kOrangeColor [UIColor orangeColor]
+
+
 #pragma mark - 系统UI
 #define kNavigationBarHeight 44
 #define kStatusBarHeight 20

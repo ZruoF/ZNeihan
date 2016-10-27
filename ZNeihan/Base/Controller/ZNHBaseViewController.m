@@ -8,17 +8,19 @@
 
 #import "ZNHBaseViewController.h"
 #import "NSNotificationCenter+Addtion.h"
-#import "ZNHCommonConstant.h"
 #import "ZNHCustomLoadingAnimationView.h"
 #import "AFNetworkReachabilityManager.h"
 #import "SDImageCache.h"
 #import "YYWebImageManager.h"
 #import "YYDiskCache.h"
 #import "YYMemoryCache.h"
+#import "ZNHCustomNoNetworkEmptyView.h"
 
 @interface ZNHBaseViewController ()
 
 @property (nonatomic, weak)ZNHCustomLoadingAnimationView *loadingView;
+
+@property (nonatomic, weak) ZNHCustomNoNetworkEmptyView *noNetWorkEmptyView;
 
 @end
 
@@ -77,30 +79,67 @@
 }
 
 -(void)dismiss {
-
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)dismissWithCompletion:(void(^)()) completion {
-
+    [self dismissViewControllerAnimated:YES completion:completion];
 }
 
 -(void)presentVc:(UIViewController *)vc {
-
+    if ([vc isKindOfClass:[UIViewController class]] == NO) return ;
+    [self presentVc:vc completion:nil];
 }
 
 -(void)presentVc:(UIViewController *)vc completion:(void (^)()) completion {
-
+    if ([vc isKindOfClass:[UIViewController class]] == NO) return ;
+    [self presentViewController:vc animated:YES completion:completion];
 }
 
 -(void)pushVc:(UIViewController *)vc {
-
+    if ([vc isKindOfClass:[UIViewController class]] == NO) return ;
+    if (self.navigationController == nil) return ;
+    if (vc.hidesBottomBarWhenPushed == NO) {
+        vc.hidesBottomBarWhenPushed = YES;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
--(void)removeChildVc:(UIViewController *)Vc {
-
+-(void)removeChildVc:(UIViewController *)childVc {
+    if ([childVc isKindOfClass:[UIViewController class]] == NO) return ;
+    [childVc.view removeFromSuperview];
+    [childVc willMoveToParentViewController:nil];
+    [childVc removeFromParentViewController];
 }
 
--(void)addChildVc:(UIViewController *)Vc {
+-(void)addChildVc:(UIViewController *)childVc {
+    if ([childVc isKindOfClass:[UIViewController class]] == NO) return ;
+    [childVc willMoveToParentViewController:self];
+    [self addChildViewController:childVc];
+    [self.view addSubview:childVc.view];
+    childVc.view.frame = self.view.bounds;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+// 没网 展现页面
+-(ZNHCustomNoNetworkEmptyView *) customNoNetworkEmptyView {
+    if (!_noNetWorkEmptyView) {
+        ZNHCustomNoNetworkEmptyView *empty = [[ZNHCustomNoNetworkEmptyView alloc] init];
+        [self.view addSubview:empty];
+        _noNetWorkEmptyView = empty;
+        
+        WeakSelf(weakSelf);
+        [empty mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(weakSelf.view);
+        }];
+        empty.customNoNetworkEmptyViewDidClickRetryHandle = ^(ZNHCustomNoNetworkEmptyView *empty) {
+            [weakSelf loadData];
+        };
+    }
+    return _noNetWorkEmptyView;
 
 }
 
@@ -115,6 +154,11 @@
 -(void)hideLoadingAnimation {
     [_loadingView dismiss];
     _loadingView = nil;
+}
+
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self.view bringSubviewToFront:self.loadingView];
 }
 
 //请求数据，交给子类去实现

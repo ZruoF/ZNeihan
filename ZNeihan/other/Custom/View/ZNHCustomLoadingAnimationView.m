@@ -26,11 +26,22 @@
 }
 
 -(void)showInView:(UIView *) view {
-
+    if (view == nil) {
+        view = [UIApplication sharedApplication].keyWindow;
+    }
+    [view addSubview:self];
+    self.frame = view.bounds;
+    self.imageView.frame = CGRectMake(0, 0, 70, 100);
+    self.imageView.center = self.center;
+    
+    [self.imageView startAnimating];
 }
 
 -(void)dismiss {
-
+    [_imageArray removeAllObjects];
+    [_imageView stopAnimating];
+    [_imageView removeFromSuperview];
+    [self removeFromSuperview];
 }
 
 -(NSMutableArray *)imageArray {

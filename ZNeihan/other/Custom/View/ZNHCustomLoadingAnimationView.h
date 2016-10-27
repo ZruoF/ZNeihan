@@ -4,7 +4,7 @@
 //
 //  Created by zengruofan on 16/10/26.
 //  Copyright © 2016年 曾若凡. All rights reserved.
-//
+//  loading 动画图
 
 #import <UIKit/UIKit.h>
 
