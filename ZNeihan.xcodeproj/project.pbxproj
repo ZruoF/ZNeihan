@@ -16,6 +16,7 @@
 		9DE3481C1DBDD24F002E1854 /* ZNHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE3481B1DBDD24F002E1854 /* ZNHBaseViewController.m */; };
 		9DE348221DBDDA67002E1854 /* UIBarButtonItem+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE348211DBDDA67002E1854 /* UIBarButtonItem+Addition.m */; };
 		9DE348271DBDDB38002E1854 /* NSNotificationCenter+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE348261DBDDB38002E1854 /* NSNotificationCenter+Addtion.m */; };
+		9DE463111DC6F3A0000BD6C6 /* ZNHBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE463101DC6F3A0000BD6C6 /* ZNHBaseTableView.m */; };
 		9DE562651DB8EF9200BA6821 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE562641DB8EF9200BA6821 /* main.m */; };
 		9DE562681DB8EF9200BA6821 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE562671DB8EF9200BA6821 /* AppDelegate.m */; };
 		9DE5626B1DB8EF9200BA6821 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5626A1DB8EF9200BA6821 /* ViewController.m */; };
@@ -56,6 +57,8 @@
 		9DE348211DBDDA67002E1854 /* UIBarButtonItem+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Addition.m"; sourceTree = "<group>"; };
 		9DE348251DBDDB38002E1854 /* NSNotificationCenter+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+Addtion.h"; sourceTree = "<group>"; };
 		9DE348261DBDDB38002E1854 /* NSNotificationCenter+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+Addtion.m"; sourceTree = "<group>"; };
+		9DE4630F1DC6F3A0000BD6C6 /* ZNHBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHBaseTableView.h; sourceTree = "<group>"; };
+		9DE463101DC6F3A0000BD6C6 /* ZNHBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHBaseTableView.m; sourceTree = "<group>"; };
 		9DE562601DB8EF9200BA6821 /* ZNeihan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNeihan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE562641DB8EF9200BA6821 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DE562661DB8EF9200BA6821 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 			children = (
 				9DBF3A6C1DC2EF2800FE83CA /* ZNHBaseTableViewCell.h */,
 				9DBF3A6D1DC2EF2800FE83CA /* ZNHBaseTableViewCell.m */,
+				9DE4630F1DC6F3A0000BD6C6 /* ZNHBaseTableView.h */,
+				9DE463101DC6F3A0000BD6C6 /* ZNHBaseTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE463111DC6F3A0000BD6C6 /* ZNHBaseTableView.m in Sources */,
 				9DBF3A541DC1E48800FE83CA /* UIView+Frame.m in Sources */,
 				9DB213ED1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m in Sources */,
 				9DE348271DBDDB38002E1854 /* NSNotificationCenter+Addtion.m in Sources */,
