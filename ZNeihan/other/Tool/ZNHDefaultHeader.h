@@ -19,7 +19,8 @@
 #define kOrangeColor [UIColor orangeColor]
 #define kRGBAColor(r, g ,b, a) [UIColor  colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define kRGBColor(r, g, b) kRGBAColor(r, g, b, 1.00f)
-#define kSeperatorColor kRGBColor(234, 237, 240);
+#define kSeperatorColor kRGBColor(234, 237, 240)
+#define kWhiteColor [UIColor whiteColor]
 
 #pragma mark - 系统UI
 #define kNavigationBarHeight 44

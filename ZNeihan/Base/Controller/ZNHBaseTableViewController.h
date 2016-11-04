@@ -14,13 +14,13 @@ typedef void(^ZNHTableVcCellSelectedHandle) (ZNHBaseTableViewCell *cell, NSIndex
 
 typedef NS_ENUM(NSInteger, ZNHBaseTableVcRefreshType) {
     // 无法刷新
-    ZNCBaseTableVcRefreshTypeNone = 0,
+    ZNHBaseTableVcRefreshTypeNone = 0,
     // 只能刷新
-    ZNCBaseTableVcRefreshTypeOnlyCanRefresh,
+    ZNHBaseTableVcRefreshTypeOnlyCanRefresh,
     // 只能上拉刷新
-    ZNCBaseTableVcRefreshTypeOnlyCanLoadMore,
+    ZNHBaseTableVcRefreshTypeOnlyCanLoadMore,
     // 能刷新
-    ZNCBaseTableVcRefreshTypeRefreshAndLoadMore
+    ZNHBaseTableVcRefreshTypeRefreshAndLoadMore
     
 };
 
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, ZNHBaseTableVcRefreshType) {
 // 刚刚执行的是上拉刷新
 @property (nonatomic, assign) NSInteger isLoadMore;
 // 隐藏statusBar
-@property (nonatomic, assign) BOOL hinddenStatusBar;
+@property (nonatomic, assign) BOOL hiddenStatusBar;
 // statusBar 风格
 @property (nonatomic, assign) UIStatusBarStyle barStyle;
 // 右导航 item
