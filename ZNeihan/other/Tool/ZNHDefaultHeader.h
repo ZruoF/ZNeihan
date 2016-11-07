@@ -16,10 +16,13 @@
 
 #pragma mark -颜色
 #define kCommonBgColor [UIColor colorWithRed:0.86f green:0.85f blue:0.80f alpha:1.00f]
+#define kCommonBlackColor [UIColor colorWithRed:0.17f green:0.23f blue:0.28f alpha:1.00f]
+#define kCommonHighLightRedColor [UIColor colorWithRed:1.00f green:0.49f blue:0.65f alpha:1.00f]
 #define kOrangeColor [UIColor orangeColor]
 #define kRGBAColor(r, g ,b, a) [UIColor  colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define kRGBColor(r, g, b) kRGBAColor(r, g, b, 1.00f)
 #define kSeperatorColor kRGBColor(234, 237, 240)
+#define kClearColor [UIColor clearColor]
 #define kWhiteColor [UIColor whiteColor]
 
 #pragma mark - 系统UI

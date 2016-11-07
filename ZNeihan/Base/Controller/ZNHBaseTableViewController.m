@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "UIView+Layer.h"
 #import "UIView+Tap.h"
+#import "ZNHUtils.h"
 
 const char ZNHBaseTableVcNavRightItemHandleKey;
 const char ZNHBaseTableVcNavLeftItemHandleKey;
@@ -244,11 +245,34 @@ const char ZNHBaseTableVcNavLeftItemHandleKey;
 }
 
 - (void)znh_addRefresh {
-    
+    [ZNHUtils addPullRefreshForScrollView:self.tableView pullRefreshCallBack:^{
+        [self znh_refresh];
+    }];
 }
 
 - (void)znh_addLoadMore {
+    [ZNHUtils addLoadMoreForScrollView:self.tableView loadMoreCallBack:^{
+        [self znh_loadMore];
+    }];
+}
 
+// 表视图偏移
+- (void)setTableEdgeInset:(UIEdgeInsets)tableEdgeInset {
+    _tableEdgeInset = tableEdgeInset;
+    [self.view setNeedsUpdateConstraints]; // 去标记constraints需要在未来的某个点更新
+    [self.view updateConstraintsIfNeeded]; // 立即触发约束更新，自动更新布局
+    [self.view layoutIfNeeded]; // 标记设为需要布局
+    [self.view setNeedsLayout]; // 实现布局
+}
+
+- (void) updateViewConstraints {
+    [super updateViewConstraints];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.tableView.frame = self.view.bounds;
+    [self.view sendSubviewToBack:self.tableView];
 }
 
 // 刷新数据
