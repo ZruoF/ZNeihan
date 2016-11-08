@@ -10,6 +10,7 @@
 		9DA2FD361DCC61E000EBF5EB /* UIView+Tap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD351DCC61E000EBF5EB /* UIView+Tap.m */; };
 		9DA2FD391DCC821500EBF5EB /* ZNHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD381DCC821500EBF5EB /* ZNHUtils.m */; };
 		9DA2FD3D1DD0299E00EBF5EB /* ZNHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD3C1DD0299E00EBF5EB /* ZNHRefreshFooter.m */; };
+		9DA2FD481DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD471DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m */; };
 		9DB213DC1DC0978C00F53B7E /* ZNHCommonConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB213DB1DC0978C00F53B7E /* ZNHCommonConstant.m */; };
 		9DB213ED1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB213EC1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m */; };
 		9DBF3A501DC1C57E00FE83CA /* ZNHCustomNoNetworkEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBF3A4F1DC1C57E00FE83CA /* ZNHCustomNoNetworkEmptyView.m */; };
@@ -49,6 +50,8 @@
 		9DA2FD381DCC821500EBF5EB /* ZNHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHUtils.m; sourceTree = "<group>"; };
 		9DA2FD3B1DD0299E00EBF5EB /* ZNHRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHRefreshFooter.h; sourceTree = "<group>"; };
 		9DA2FD3C1DD0299E00EBF5EB /* ZNHRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHRefreshFooter.m; sourceTree = "<group>"; };
+		9DA2FD461DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHBaseTableHeaderFooterView.h; sourceTree = "<group>"; };
+		9DA2FD471DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHBaseTableHeaderFooterView.m; sourceTree = "<group>"; };
 		9DB213DA1DC0978C00F53B7E /* ZNHCommonConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHCommonConstant.h; sourceTree = "<group>"; };
 		9DB213DB1DC0978C00F53B7E /* ZNHCommonConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHCommonConstant.m; sourceTree = "<group>"; };
 		9DB213EB1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHCustomLoadingAnimationView.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				9DBF3A6D1DC2EF2800FE83CA /* ZNHBaseTableViewCell.m */,
 				9DE4630F1DC6F3A0000BD6C6 /* ZNHBaseTableView.h */,
 				9DE463101DC6F3A0000BD6C6 /* ZNHBaseTableView.m */,
+				9DA2FD461DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.h */,
+				9DA2FD471DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 				9DE463111DC6F3A0000BD6C6 /* ZNHBaseTableView.m in Sources */,
 				9DBF3A541DC1E48800FE83CA /* UIView+Frame.m in Sources */,
 				9DA2FD3D1DD0299E00EBF5EB /* ZNHRefreshFooter.m in Sources */,
+				9DA2FD481DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m in Sources */,
 				9DB213ED1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m in Sources */,
 				9DE348271DBDDB38002E1854 /* NSNotificationCenter+Addtion.m in Sources */,
 				9DE5626B1DB8EF9200BA6821 /* ViewController.m in Sources */,

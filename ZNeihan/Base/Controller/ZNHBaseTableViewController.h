@@ -76,9 +76,13 @@ typedef NS_ENUM(NSInteger, ZNHBaseTableVcRefreshType) {
 - (void)znh_beginRefresh;
 // 停止刷新
 - (void)znh_endRefresh;
+// 停止上拉加载
+- (void)znh_endLoadMore;
 // 隐藏刷新
 - (void)znh_hiddenRefresh;
-// 提示么有更多信息
+// 隐藏上拉加载
+- (void)znh_hiddenLoadMore;
+// 提示没有更多信息
 - (void)znh_noticeNoMoreData;
 // 配置数据
 - (void)znh_commonConfigResponseWithResponse:(id)response isRefresh:(BOOL)isRefresh modelClass:(__unsafe_unretained Class) modelClass;
@@ -93,7 +97,7 @@ typedef NS_ENUM(NSInteger, ZNHBaseTableVcRefreshType) {
 // 某行的cell
 - (ZNHBaseTableViewCell *)znh_cellAtIndexPath:(NSIndexPath *)indexPath;
 // 点击某行
-- (void)znh_didSelectCellAtIndexPath:(NSInteger)indexPath cell:(ZNHBaseTableViewCell *)cell;
+- (void)znh_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(ZNHBaseTableViewCell *)cell;
 // 某行行高
 - (CGFloat)znh_cellHeightAtIndexPath:(NSIndexPath *)indexPath;
 // 某个组头

@@ -7,10 +7,13 @@
 //
 
 #import "ZNHBaseTableViewController.h"
+#import "AFNetworkReachabilityManager.h"
+#import "ZNHBaseTableHeaderFooterView.h"
 #import <objc/runtime.h>
 #import "UIView+Layer.h"
 #import "UIView+Tap.h"
-#import "ZNHUtils.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
 
 const char ZNHBaseTableVcNavRightItemHandleKey;
 const char ZNHBaseTableVcNavLeftItemHandleKey;
@@ -200,6 +203,11 @@ const char ZNHBaseTableVcNavLeftItemHandleKey;
     return _refreshImage;
 }
 
+- (UIView *)refreshHeader {
+    return self.tableView.mj_header;
+}
+
+
 - (void)startAnimation {
     CABasicAnimation* rotationAnimation;
     rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
@@ -275,85 +283,263 @@ const char ZNHBaseTableVcNavLeftItemHandleKey;
     [self.view sendSubviewToBack:self.tableView];
 }
 
+// 分割线颜色
+- (void)setSepLineColor:(UIColor *)sepLineColor {
+    if (!self.needCellSepLine) {
+        return;
+    }
+    _sepLineColor = sepLineColor;
+    if (sepLineColor) {
+        self.tableView.separatorColor = sepLineColor;
+    }
+}
+
+- (UIColor *)sepLineColor {
+    return _sepLineColor;
+}
+
+// 头部正在刷新
+- (BOOL)isHeaderRefreshing {
+    return [ZNHUtils headerIsRefreshForScrollView:self.tableView];
+}
+
+// 尾部正在刷新
+-  (BOOL)isFooterRefreshing {
+    return [ZNHUtils footerIsRefreshForScrollView:self.tableView];
+}
+
 // 刷新数据
 - (void)znh_reloadData {
-    
+    [self.tableView reloadData];
 }
+
 // 开始下拉
 - (void)znh_beginRefresh {
-
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanRefresh || self.refreshType == ZNHBaseTableVcRefreshTypeRefreshAndLoadMore) {
+        [ZNHUtils beginPullRefreshForScrollView:self.tableView];
+    }
 }
+
 // 停止刷新
 - (void)znh_endRefresh {
-
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanRefresh || self.refreshType == ZNHBaseTableVcRefreshTypeRefreshAndLoadMore) {
+        [ZNHUtils endRefreshForScrollView:self.tableView];
+    }
 }
+
+// 停止上拉加载
+- (void)znh_endLoadMore {
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanLoadMore || self.refreshType == ZNHBaseTableVcRefreshTypeRefreshAndLoadMore) {
+        [ZNHUtils endLoadMoreForScrollView:self.tableView];
+    }
+}
+
 // 隐藏刷新
 - (void)znh_hiddenRefresh {
-
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanRefresh || self.refreshType == ZNHBaseTableVcRefreshTypeRefreshAndLoadMore) {
+        [ZNHUtils hiddenFooterForScrollView:self.tableView];
+    }
 }
-// 提示么有更多信息
-- (void)znh_noticeNoMoreData {
 
+// 隐藏上拉加载
+- (void)znh_hiddenLoadMore{
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanLoadMore || self.refreshType == ZNHBaseTableVcRefreshTypeRefreshAndLoadMore) {
+        [ZNHUtils hiddenHeaderForScrollView:self.tableView];
+    }
+}
+
+// 提示没有更多信息
+- (void)znh_noticeNoMoreData {
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanLoadMore || self.refreshType == ZNHBaseTableVcRefreshTypeRefreshAndLoadMore) {
+        [ZNHUtils noticeNoMoreDataForScrollView:self.tableView];
+    }
 }
 // 配置数据
 - (void)znh_commonConfigResponseWithResponse:(id)response isRefresh:(BOOL)isRefresh modelClass:(__unsafe_unretained Class) modelClass {
-
+    [self znh_commonConfigResponseWithResponse:response isRefresh:isRefresh modelClass:modelClass emptyText:nil];
 }
 // 配置数据
 - (void)znh_commonConfigResponseWithResponse:(id)response isRefresh:(BOOL)isRefresh modelClass:(__unsafe_unretained Class) modelClass emptyText:(NSString *)emptyText {
+    if ([response isKindOfClass:[NSArray class]] == NO) return;
+    if (self.isRefresh) { // 刷新
+        // 停止刷新
+        [self znh_endRefresh];
+        // 设置模型
+        [self.dataArray removeAllObjects];
+        self.dataArray = [modelClass mj_objectArrayWithKeyValuesArray:response];
+        // 设置空界面占位文字
+        if (emptyText.length) {
+            [self znh_addEmptyPageWithText:emptyText];
+        }
+        // 刷新界面
+        [self znh_reloadData];
+    } else {         // 上拉刷新
+        // 停止上拉
+        [self znh_endLoadMore];
+        if ([response count] == 0) {
+            [self znh_noticeNoMoreData];
+        } else {
+            // 设置模型数组
+            NSArray *newModels = [modelClass mj_objectArrayWithKeyValuesArray:response];
+            if (newModels.count < 50) {
+                [self znh_hiddenLoadMore];
+            }
+            [self.dataArray addObjectsFromArray:newModels];
+            // 刷新界面
+            [self znh_reloadData];
+        }
+    }
+}
 
+#pragma mark - <UITableViewDataSource, UITableViewDelegate>
+// 分组数量
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if ([self respondsToSelector:@selector(znh_numberOfSections)]) {
+        return self.znh_numberOfSections;
+    }
+    return 0;
+}
+
+// 指定租返回的cell数量
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([self respondsToSelector:@selector(znh_numberOfRowsInSection:)]) {
+        return [self znh_numberOfRowsInSection:section];
+    }
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if ([self respondsToSelector:@selector(znh_headerAtSection:)]) {
+        return [self znh_headerAtSection:section];
+    }
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if ([self respondsToSelector:@selector(znh_footerAtSection:)]) {
+        return [self znh_footerAtSection:section];
+    }
+    return nil;
+}
+
+// 每一行 返回指定的cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self respondsToSelector:@selector(znh_cellAtIndexPath:)]) {
+        return [self znh_cellAtIndexPath:indexPath];
+    }
+    // 创建cell
+    ZNHBaseTableViewCell *cell = [ZNHBaseTableViewCell cellWithTableView:self.tableView];
+    // 返回cell
+    return cell;
+}
+
+// 点击某行 触发的事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ZNHBaseTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([self respondsToSelector:@selector(znh_didSelectCellAtIndexPath:cell:)]) {
+        [self znh_didSelectCellAtIndexPath:indexPath cell:cell];
+    }
+}
+
+// 设置分割线偏移间距并适配
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.needCellSepLine) {
+        return;
+    }
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    if ([self respondsToSelector:@selector(znh_sepEdgeInsetsAtIndexPath:)]) {
+        edgeInsets = [self znh_sepEdgeInsetsAtIndexPath:indexPath];
+    }
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) [tableView setSeparatorInset:edgeInsets];
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) [tableView setLayoutMargins:edgeInsets];
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) [cell setSeparatorInset:edgeInsets];
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)])[cell setLayoutMargins:edgeInsets];
+}
+
+// 每一行的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self respondsToSelector:@selector(znh_cellHeightAtIndexPath:)]) {
+        return [self znh_cellHeightAtIndexPath:indexPath];
+    }
+    return tableView.rowHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([self respondsToSelector:@selector(znh_sectionHeaderHeightAtSectoin:)]) {
+        return [self znh_sectionHeaderHeightAtSectoin:section];
+    }
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if ([self respondsToSelector:@selector(znh_sectionFooterHeightAtSectoin:)]) {
+        return [self znh_sectionFooterHeightAtSectoin:section];
+    }
+    return 0.01;
 }
 
 #pragma mark - 子类去重写
 // 分组数量
 - (NSInteger)znh_numberOfSections {
-
+    return 0;
 }
 // 某个分组的cell 数量
 - (NSInteger)znh_numberOfRowsInSection:(NSInteger)section {
-
+    return 0;
 }
 // 某行的cell
 - (ZNHBaseTableViewCell *)znh_cellAtIndexPath:(NSIndexPath *)indexPath {
-
+    return [ZNHBaseTableViewCell cellWithTableView:self.tableView];
 }
 // 点击某行
-- (void)znh_didSelectCellAtIndexPath:(NSInteger)indexPath cell:(ZNHBaseTableViewCell *)cell {
-
+- (void)znh_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(ZNHBaseTableViewCell *)cell {
+    
 }
 // 某行行高
 - (CGFloat)znh_cellHeightAtIndexPath:(NSIndexPath *)indexPath {
-
+    return 0;
 }
 // 某个组头
 - (UIView *)znh_headerAtSection:(NSInteger) section {
-
+    return [ZNHBaseTableHeaderFooterView headerFooterViewWithTableView:self.tableView];
 }
 // 某个组尾
 - (UIView *)znh_footerAtSection:(NSInteger) section {
-
+    return [ZNHBaseTableHeaderFooterView headerFooterViewWithTableView:self.tableView];
 }
 // 某个组头 高度
 - (CGFloat)znh_sectionHeaderHeightAtSectoin:(NSInteger)section {
-
+    return 0.01;
 }
 // 某个组尾 高度
 - (CGFloat)znh_sectionFooterHeightAtSectoin:(NSInteger)section {
-
+    return 0.01;
 }
 //分割线偏移
 - (UIEdgeInsets)znh_sepEdgeInsetsAtIndexPath:(NSIndexPath *)indexPath {
-
+    return UIEdgeInsetsMake(0, 15, 0, 0);
 }
 
 #pragma mark - 子类继承
 // 刷新方法
 - (void)znh_refresh {
-
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeNone || self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanLoadMore) {
+        return;
+    }
+    self.isRefresh = YES;
+    self.isLoadMore = NO;
 }
 // 上拉加载方法
 - (void)znh_loadMore {
-
+    if (self.refreshType == ZNHBaseTableVcRefreshTypeNone || self.refreshType == ZNHBaseTableVcRefreshTypeOnlyCanRefresh) {
+        return;
+    }
+    if (self.dataArray.count == 0) {
+        return;
+    }
+    self.isRefresh = NO;
+    self.isLoadMore = YES;
 }
 
 - (void)endRefreshIconAnimation {
@@ -371,6 +557,10 @@ const char ZNHBaseTableVcNavLeftItemHandleKey;
 
 - (void)znh_showTitle:(NSString *)title after:(NSTimeInterval)after {
 
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
