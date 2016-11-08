@@ -34,6 +34,7 @@ const char ZNHBaseTableVcNavLeftItemHandleKey;
 @synthesize navLeftItem = _navLeftItem;
 @synthesize hiddenStatusBar = _hiddenStatusBar;
 @synthesize barStyle = _barStyle;
+@synthesize dataArray = _dataArray;
 
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {
