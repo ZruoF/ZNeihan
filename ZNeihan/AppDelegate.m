@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "ZNHBaseViewController.h"
+#import "ZNHMainTabberViewController.h"
+#import "YYWebImageManager.h"
+#import "YYDiskCache.h"
+#import "YYMemoryCache.h"
+#import "SDImageCache.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +25,7 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[ZNHBaseViewController alloc] init];
+    self.window.rootViewController = [[ZNHMainTabberViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -128,6 +132,12 @@
             abort();
         }
     }
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    [[SDImageCache sharedImageCache] setValue:nil forKey:@"memCache"];
+    [[[YYWebImageManager sharedManager] cache].diskCache removeAllObjects];
+    [[[YYWebImageManager sharedManager] cache].memoryCache removeAllObjects];
 }
 
 @end

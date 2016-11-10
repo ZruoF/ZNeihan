@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D261BC71DD46F3F00C65229 /* ZNHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D261BC61DD46F3F00C65229 /* ZNHHomeViewController.m */; };
+		9D971A3D1DD30548003C7A59 /* ZNHMainTabberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D971A3C1DD30548003C7A59 /* ZNHMainTabberViewController.m */; };
 		9DA2FD361DCC61E000EBF5EB /* UIView+Tap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD351DCC61E000EBF5EB /* UIView+Tap.m */; };
 		9DA2FD391DCC821500EBF5EB /* ZNHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD381DCC821500EBF5EB /* ZNHUtils.m */; };
 		9DA2FD3D1DD0299E00EBF5EB /* ZNHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD3C1DD0299E00EBF5EB /* ZNHRefreshFooter.m */; };
@@ -44,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		07F3264A7E4EA1459B8A0F44 /* libPods-ZNeihan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZNeihan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D261BC51DD46F3F00C65229 /* ZNHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHHomeViewController.h; sourceTree = "<group>"; };
+		9D261BC61DD46F3F00C65229 /* ZNHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHHomeViewController.m; sourceTree = "<group>"; };
+		9D971A3B1DD30548003C7A59 /* ZNHMainTabberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHMainTabberViewController.h; sourceTree = "<group>"; };
+		9D971A3C1DD30548003C7A59 /* ZNHMainTabberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHMainTabberViewController.m; sourceTree = "<group>"; };
 		9DA2FD341DCC61E000EBF5EB /* UIView+Tap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Tap.h"; sourceTree = "<group>"; };
 		9DA2FD351DCC61E000EBF5EB /* UIView+Tap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Tap.m"; sourceTree = "<group>"; };
 		9DA2FD371DCC821500EBF5EB /* ZNHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHUtils.h; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 		9DBF3A631DC2EC3000FE83CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9D971A3B1DD30548003C7A59 /* ZNHMainTabberViewController.h */,
+				9D971A3C1DD30548003C7A59 /* ZNHMainTabberViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,6 +252,175 @@
 				9DE463101DC6F3A0000BD6C6 /* ZNHBaseTableView.m */,
 				9DA2FD461DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.h */,
 				9DA2FD471DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DD97C4D1DD44C6600CDE36D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9DD97C4E1DD44C6600CDE36D /* Attention */,
+				9DD97C531DD44C6600CDE36D /* Detail */,
+				9DD97C581DD44C6600CDE36D /* Main */,
+				9DD97C5D1DD44C6600CDE36D /* Report */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9DD97C4E1DD44C6600CDE36D /* Attention */ = {
+			isa = PBXGroup;
+			children = (
+				9DD97C4F1DD44C6600CDE36D /* Controller */,
+				9DD97C501DD44C6600CDE36D /* Model */,
+				9DD97C511DD44C6600CDE36D /* Request */,
+				9DD97C521DD44C6600CDE36D /* View */,
+			);
+			path = Attention;
+			sourceTree = "<group>";
+		};
+		9DD97C4F1DD44C6600CDE36D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9DD97C501DD44C6600CDE36D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DD97C511DD44C6600CDE36D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9DD97C521DD44C6600CDE36D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DD97C531DD44C6600CDE36D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9DD97C541DD44C6600CDE36D /* Controller */,
+				9DD97C551DD44C6600CDE36D /* Model */,
+				9DD97C561DD44C6600CDE36D /* Request */,
+				9DD97C571DD44C6600CDE36D /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9DD97C541DD44C6600CDE36D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9DD97C551DD44C6600CDE36D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DD97C561DD44C6600CDE36D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9DD97C571DD44C6600CDE36D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DD97C581DD44C6600CDE36D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9DD97C591DD44C6600CDE36D /* Controller */,
+				9DD97C5A1DD44C6600CDE36D /* Model */,
+				9DD97C5B1DD44C6600CDE36D /* Request */,
+				9DD97C5C1DD44C6600CDE36D /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9DD97C591DD44C6600CDE36D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BC51DD46F3F00C65229 /* ZNHHomeViewController.h */,
+				9D261BC61DD46F3F00C65229 /* ZNHHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9DD97C5A1DD44C6600CDE36D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DD97C5B1DD44C6600CDE36D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9DD97C5C1DD44C6600CDE36D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DD97C5D1DD44C6600CDE36D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				9DD97C5E1DD44C6600CDE36D /* Controller */,
+				9DD97C5F1DD44C6600CDE36D /* Model */,
+				9DD97C601DD44C6600CDE36D /* Request */,
+				9DD97C611DD44C6600CDE36D /* View */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		9DD97C5E1DD44C6600CDE36D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9DD97C5F1DD44C6600CDE36D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DD97C601DD44C6600CDE36D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9DD97C611DD44C6600CDE36D /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +493,7 @@
 		9DE562621DB8EF9200BA6821 /* ZNeihan */ = {
 			isa = PBXGroup;
 			children = (
+				9DD97C4D1DD44C6600CDE36D /* Home */,
 				9DBF3A621DC2EC3000FE83CA /* Main */,
 				9DE9B46E1DBC58A500912921 /* other */,
 				9DE7D0631DB9213F0083602E /* Base */,
@@ -567,6 +745,7 @@
 				9DA2FD481DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m in Sources */,
 				9DB213ED1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m in Sources */,
 				9DE348271DBDDB38002E1854 /* NSNotificationCenter+Addtion.m in Sources */,
+				9D261BC71DD46F3F00C65229 /* ZNHHomeViewController.m in Sources */,
 				9DE5626B1DB8EF9200BA6821 /* ViewController.m in Sources */,
 				9DE3481C1DBDD24F002E1854 /* ZNHBaseViewController.m in Sources */,
 				9DBF3A6E1DC2EF2800FE83CA /* ZNHBaseTableViewCell.m in Sources */,
@@ -576,6 +755,7 @@
 				9DE562681DB8EF9200BA6821 /* AppDelegate.m in Sources */,
 				9DE4634D1DCB2226000BD6C6 /* UIView+Layer.m in Sources */,
 				9DE7D06A1DB921A10083602E /* ZNHBaseNavigationViewController.m in Sources */,
+				9D971A3D1DD30548003C7A59 /* ZNHMainTabberViewController.m in Sources */,
 				9DE348221DBDDA67002E1854 /* UIBarButtonItem+Addition.m in Sources */,
 				9DA2FD361DCC61E000EBF5EB /* UIView+Tap.m in Sources */,
 				9DE562651DB8EF9200BA6821 /* main.m in Sources */,
