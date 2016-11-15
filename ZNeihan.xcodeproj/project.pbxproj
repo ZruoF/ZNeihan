@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9D261BC71DD46F3F00C65229 /* ZNHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D261BC61DD46F3F00C65229 /* ZNHHomeViewController.m */; };
+		9D261BD81DD57B9600C65229 /* ZNHDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D261BD71DD57B9600C65229 /* ZNHDiscoverViewController.m */; };
+		9D261BE11DD57CA700C65229 /* ZNHCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D261BE01DD57CA700C65229 /* ZNHCheckViewController.m */; };
+		9D261BEA1DD5AD9300C65229 /* ZNHMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D261BE91DD5AD9300C65229 /* ZNHMessageViewController.m */; };
+		9D261BED1DD5C17E00C65229 /* ZNHCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D261BEC1DD5C17E00C65229 /* ZNHCustomSegmentView.m */; };
 		9D971A3D1DD30548003C7A59 /* ZNHMainTabberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D971A3C1DD30548003C7A59 /* ZNHMainTabberViewController.m */; };
 		9DA2FD361DCC61E000EBF5EB /* UIView+Tap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD351DCC61E000EBF5EB /* UIView+Tap.m */; };
 		9DA2FD391DCC821500EBF5EB /* ZNHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2FD381DCC821500EBF5EB /* ZNHUtils.m */; };
@@ -48,6 +52,14 @@
 		07F3264A7E4EA1459B8A0F44 /* libPods-ZNeihan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZNeihan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D261BC51DD46F3F00C65229 /* ZNHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHHomeViewController.h; sourceTree = "<group>"; };
 		9D261BC61DD46F3F00C65229 /* ZNHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHHomeViewController.m; sourceTree = "<group>"; };
+		9D261BD61DD57B9600C65229 /* ZNHDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHDiscoverViewController.h; sourceTree = "<group>"; };
+		9D261BD71DD57B9600C65229 /* ZNHDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHDiscoverViewController.m; sourceTree = "<group>"; };
+		9D261BDF1DD57CA700C65229 /* ZNHCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHCheckViewController.h; sourceTree = "<group>"; };
+		9D261BE01DD57CA700C65229 /* ZNHCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHCheckViewController.m; sourceTree = "<group>"; };
+		9D261BE81DD5AD9300C65229 /* ZNHMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHMessageViewController.h; sourceTree = "<group>"; };
+		9D261BE91DD5AD9300C65229 /* ZNHMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHMessageViewController.m; sourceTree = "<group>"; };
+		9D261BEB1DD5C17E00C65229 /* ZNHCustomSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHCustomSegmentView.h; sourceTree = "<group>"; };
+		9D261BEC1DD5C17E00C65229 /* ZNHCustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHCustomSegmentView.m; sourceTree = "<group>"; };
 		9D971A3B1DD30548003C7A59 /* ZNHMainTabberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNHMainTabberViewController.h; sourceTree = "<group>"; };
 		9D971A3C1DD30548003C7A59 /* ZNHMainTabberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNHMainTabberViewController.m; sourceTree = "<group>"; };
 		9DA2FD341DCC61E000EBF5EB /* UIView+Tap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Tap.h"; sourceTree = "<group>"; };
@@ -138,6 +150,154 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9D261BD01DD5796A00C65229 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BD11DD5796A00C65229 /* Main */,
+			);
+			name = Discover;
+			path = ZNeihan/Discover;
+			sourceTree = SOURCE_ROOT;
+		};
+		9D261BD11DD5796A00C65229 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BD21DD5796A00C65229 /* Controller */,
+				9D261BD31DD5796A00C65229 /* Model */,
+				9D261BD41DD5796A00C65229 /* Request */,
+				9D261BD51DD5796A00C65229 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9D261BD21DD5796A00C65229 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BD61DD57B9600C65229 /* ZNHDiscoverViewController.h */,
+				9D261BD71DD57B9600C65229 /* ZNHDiscoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9D261BD31DD5796A00C65229 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D261BD41DD5796A00C65229 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9D261BD51DD5796A00C65229 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D261BD91DD57C7C00C65229 /* Check */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BDA1DD57C7C00C65229 /* Main */,
+			);
+			path = Check;
+			sourceTree = "<group>";
+		};
+		9D261BDA1DD57C7C00C65229 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BDB1DD57C7C00C65229 /* Controller */,
+				9D261BDC1DD57C7C00C65229 /* Model */,
+				9D261BDD1DD57C7C00C65229 /* Request */,
+				9D261BDE1DD57C7C00C65229 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9D261BDB1DD57C7C00C65229 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BDF1DD57CA700C65229 /* ZNHCheckViewController.h */,
+				9D261BE01DD57CA700C65229 /* ZNHCheckViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9D261BDC1DD57C7C00C65229 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D261BDD1DD57C7C00C65229 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9D261BDE1DD57C7C00C65229 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D261BE21DD5AD4A00C65229 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BE31DD5AD4A00C65229 /* Main */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		9D261BE31DD5AD4A00C65229 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BE41DD5AD4A00C65229 /* Controller */,
+				9D261BE51DD5AD4A00C65229 /* Model */,
+				9D261BE61DD5AD4A00C65229 /* Request */,
+				9D261BE71DD5AD4A00C65229 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9D261BE41DD5AD4A00C65229 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D261BE81DD5AD9300C65229 /* ZNHMessageViewController.h */,
+				9D261BE91DD5AD9300C65229 /* ZNHMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9D261BE51DD5AD4A00C65229 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D261BE61DD5AD4A00C65229 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9D261BE71DD5AD4A00C65229 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9DA2FD3A1DD0297E00EBF5EB /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +338,8 @@
 				9DB213EC1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m */,
 				9DBF3A4E1DC1C57E00FE83CA /* ZNHCustomNoNetworkEmptyView.h */,
 				9DBF3A4F1DC1C57E00FE83CA /* ZNHCustomNoNetworkEmptyView.m */,
+				9D261BEB1DD5C17E00C65229 /* ZNHCustomSegmentView.h */,
+				9D261BEC1DD5C17E00C65229 /* ZNHCustomSegmentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -493,10 +655,13 @@
 		9DE562621DB8EF9200BA6821 /* ZNeihan */ = {
 			isa = PBXGroup;
 			children = (
-				9DD97C4D1DD44C6600CDE36D /* Home */,
 				9DBF3A621DC2EC3000FE83CA /* Main */,
 				9DE9B46E1DBC58A500912921 /* other */,
 				9DE7D0631DB9213F0083602E /* Base */,
+				9DD97C4D1DD44C6600CDE36D /* Home */,
+				9D261BD01DD5796A00C65229 /* Discover */,
+				9D261BE21DD5AD4A00C65229 /* Message */,
+				9D261BD91DD57C7C00C65229 /* Check */,
 				9DE562661DB8EF9200BA6821 /* AppDelegate.h */,
 				9DE562671DB8EF9200BA6821 /* AppDelegate.m */,
 				9DE562691DB8EF9200BA6821 /* ViewController.h */,
@@ -743,10 +908,12 @@
 				9DBF3A541DC1E48800FE83CA /* UIView+Frame.m in Sources */,
 				9DA2FD3D1DD0299E00EBF5EB /* ZNHRefreshFooter.m in Sources */,
 				9DA2FD481DD1C7C500EBF5EB /* ZNHBaseTableHeaderFooterView.m in Sources */,
+				9D261BED1DD5C17E00C65229 /* ZNHCustomSegmentView.m in Sources */,
 				9DB213ED1DC0A41000F53B7E /* ZNHCustomLoadingAnimationView.m in Sources */,
 				9DE348271DBDDB38002E1854 /* NSNotificationCenter+Addtion.m in Sources */,
 				9D261BC71DD46F3F00C65229 /* ZNHHomeViewController.m in Sources */,
 				9DE5626B1DB8EF9200BA6821 /* ViewController.m in Sources */,
+				9D261BE11DD57CA700C65229 /* ZNHCheckViewController.m in Sources */,
 				9DE3481C1DBDD24F002E1854 /* ZNHBaseViewController.m in Sources */,
 				9DBF3A6E1DC2EF2800FE83CA /* ZNHBaseTableViewCell.m in Sources */,
 				9DE562711DB8EF9200BA6821 /* ZNeihan.xcdatamodeld in Sources */,
@@ -761,6 +928,8 @@
 				9DE562651DB8EF9200BA6821 /* main.m in Sources */,
 				9DBF3A501DC1C57E00FE83CA /* ZNHCustomNoNetworkEmptyView.m in Sources */,
 				9DBF3A691DC2ECD100FE83CA /* ZNHBaseTableViewController.m in Sources */,
+				9D261BEA1DD5AD9300C65229 /* ZNHMessageViewController.m in Sources */,
+				9D261BD81DD57B9600C65229 /* ZNHDiscoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

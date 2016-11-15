@@ -16,5 +16,6 @@
 #import "Masonry.h"
 #import "ZNHCommonConstant.h"
 #import "ZNHUtils.h"
+#import "UIView+Frame.h"
 
 #endif /* ZNHPrefixHeader_pch */

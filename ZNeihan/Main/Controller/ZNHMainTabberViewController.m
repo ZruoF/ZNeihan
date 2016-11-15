@@ -8,6 +8,10 @@
 
 #import "ZNHMainTabberViewController.h"
 #import "ZNHBaseNavigationViewController.h"
+#import "ZNHDiscoverViewController.h"
+#import "ZNHHomeViewController.h"
+#import "ZNHCheckViewController.h"
+#import "ZNHMessageViewController.h"
 
 @interface ZNHMainTabberViewController ()
 
@@ -40,10 +44,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addChildViewControllerWithClass:[ZNHBaseNavigationViewController description] imagename:@"home" title:@"首页"];
-    [self addChildViewControllerWithClass:[ZNHBaseNavigationViewController description] imagename:@"Found" title:@"发现"];
-    [self addChildViewControllerWithClass:[ZNHBaseNavigationViewController description] imagename:@"audit" title:@"审核"];
-    [self addChildViewControllerWithClass:[ZNHBaseNavigationViewController description] imagename:@"newstab" title:@"消息"];
+    [self addChildViewControllerWithClass:[ZNHHomeViewController description] imagename:@"home" title:@"首页"];
+    [self addChildViewControllerWithClass:[ZNHDiscoverViewController description] imagename:@"Found" title:@"发现"];
+    [self addChildViewControllerWithClass:[ZNHCheckViewController description] imagename:@"audit" title:@"审核"];
+    [self addChildViewControllerWithClass:[ZNHMessageViewController description] imagename:@"newstab" title:@"消息"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,10 +59,7 @@
 - (void)addChildViewControllerWithClass:(NSString *)classname
                               imagename:(NSString *)imagename
                                   title:(NSString *)title {
-//    UIViewController *vc = [[NSClassFromString(classname) alloc] init];
-    
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor grayColor];
+    UIViewController *vc = [[NSClassFromString(classname) alloc] init];
     
     ZNHBaseNavigationViewController *nav = [[ZNHBaseNavigationViewController alloc] initWithRootViewController:vc];
     nav.tabBarItem.title = title;

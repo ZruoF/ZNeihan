@@ -15,7 +15,7 @@
 // 边角半径
 @property (nonatomic, assign) CGFloat layerCornerRadius;
 // 边线宽度
-@property (nonatomic, assign) CGFloat layoutBorderWidth;
+@property (nonatomic, assign) CGFloat layerBorderWidth;
 // 边线颜色
 @property (nonatomic, strong) UIColor *layerBorderColor;
 

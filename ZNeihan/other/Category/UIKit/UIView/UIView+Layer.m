@@ -26,12 +26,12 @@
     return [UIColor colorWithCGColor:self.layer.borderColor];
 }
 
-- (void)setLayoutBorderWidth:(CGFloat)layoutBorderWidth {
-    self.layer.borderWidth = layoutBorderWidth;
+- (void)setLayerBorderWidth:(CGFloat)layerBorderWidth {
+    self.layer.borderWidth = layerBorderWidth;
     [self _config];
 }
 
-- (CGFloat)layoutBorderWidth {
+- (CGFloat)layoerBorderWidth {
     return self.layer.borderWidth;
 }
 

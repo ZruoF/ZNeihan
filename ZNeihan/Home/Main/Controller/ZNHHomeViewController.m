@@ -7,6 +7,7 @@
 //
 
 #import "ZNHHomeViewController.h"
+#import "ZNHCustomSegmentView.h"
 
 @interface ZNHHomeViewController ()
 
@@ -16,7 +17,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // 设置导航栏
+    [self setUpItems];
+}
+
+- (void)setUpItems {
+    WeakSelf(weakSelf);
+    // 精选关注
+    ZNHCustomSegmentView *segment = [[ZNHCustomSegmentView alloc] initWithItemTitle:@[@"精选", @"关注"]];
+    self.navigationItem.titleView = segment;
+    segment.frame = CGRectMake(0, 0, 130, 35);
+    [segment clickDefault];
+    segment.ZNHCustomSegmentViewBtnClickHandle = ^(ZNHCustomSegmentView *segment, NSString *title, NSInteger currentIndex) {
+//        BOOL isFeatured = (currentIndex == 0);
+        NSLog(@"zengruofan %@",title);
+    };
+    
 }
 
 - (void)didReceiveMemoryWarning {
